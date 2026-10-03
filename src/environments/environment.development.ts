@@ -1,3 +1,3 @@
 export const environment = {
-    apiUrl: 'https://api.kinoxii.redberryinternship.ge',
+    apiUrl: 'https://api.kinoxii.redberryinternship.ge/api',
 };
