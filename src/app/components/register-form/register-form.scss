@@ -1,0 +1,147 @@
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-sizing: border-box;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  background-color: rgba(7, 12, 28, 1);
+  color: #fff;
+  width: 475px;
+
+  .form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    h2 { margin: 0; }
+    p { margin: 4px 0 0; opacity: 0.7; }
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .avatar-upload {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+
+    .upload-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background-color: rgba(30, 32, 49, 1);
+    }
+    .upload-text {
+        display: flex;
+        flex-direction: column;
+    }
+    .upload-hint {
+        font-size: 12px;
+        opacity: 0.7;
+    }
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .field.invalid {
+    label {
+      color: rgba(236, 48, 19, 1);
+    }
+    input {
+      border-color: rgba(236, 48, 19, 1);
+    }
+    .icon-error {
+      display: block;
+    }
+  }
+  .field.valid .icon-ok {
+    display: block;
+  }
+  .input-wrap {
+    position: relative;
+
+    .icon {
+      display: none;
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .icon-error {
+      color: rgba(236, 48, 19, 1);
+    }
+    .icon-ok {
+      color: rgba(74, 222, 128, 1);
+    }
+  }
+
+  input {
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    width: 100%;
+    padding: 0 44px 0 16px;
+    height: 40px;
+    padding: 0 16px;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    background-color: rgba(30, 32, 49, 1);
+    color: #fff;
+    font-family: inherit;
+  }
+
+  .password-part {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .submit-btn {
+    height: 56px;
+    border: none;
+    border-radius: 999px;
+    background-color: rgba(236, 48, 19, 1);
+    color: #fff;
+    font-weight: 800;
+    cursor: pointer;
+  }
+  .submit-btn:disabled {
+    background-color: rgba(86, 88, 105, 1);
+    cursor: not-allowed;
+  }
+  .error {
+    color: rgba(236, 48, 19, 1);
+    font-size: 12px;
+  }
+
+  .switch {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .link-btn {
+    background: none;
+    border: none;
+    color: rgba(236, 48, 19, 1);
+    font-weight: 800;
+    cursor: pointer;
+  }
+}
