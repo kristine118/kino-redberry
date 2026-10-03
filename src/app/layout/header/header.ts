@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Modal } from '../../core/services/modal';
+import { Auth } from '../../core/services/auth';
 
 @Component({
   selector: 'app-header',
@@ -6,4 +8,7 @@ import { Component } from '@angular/core';
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
-export class Header {}
+export class Header {
+  modal = inject(Modal);
+  auth = inject(Auth);
+}

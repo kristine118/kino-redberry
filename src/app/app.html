@@ -1,4 +1,17 @@
 <app-header></app-header>
 
+@if (modal.current() === 'register') {
+  <app-modal-window>
+    <app-register-form />
+  </app-modal-window>
+}
+@if (modal.current() === 'login') {
+  <app-modal-window>
+    <app-login-form />
+  </app-modal-window>
+}
+
+
+
 
 <router-outlet />

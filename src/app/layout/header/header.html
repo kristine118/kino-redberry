@@ -16,11 +16,18 @@
             <input  type="search" placeholder="Search films and live events">
 
         </div>
+        
 
-        <div class="auth-btns">
-            <button type="button" class="signup">Sign up</button>
-            <button type="button" class="login">Log in</button>
+        @if (auth.isLoggedIn()) {
+        <div class="user-menu">
+            {{ auth.user()?.username }}
         </div>
+        } @else {
+        <div class="auth-btns">
+            <button type="button" class="signup" (click)="modal.open('register')">Sign up</button>
+            <button type="button" class="login" (click)="modal.open('login')">Log in</button>
+        </div>
+        }
         
     </div>
 </header>
