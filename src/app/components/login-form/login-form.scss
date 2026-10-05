@@ -22,12 +22,43 @@
     flex-direction: column;
     gap: 8px;
   }
+  .field.invalid {
+    label {
+      color: rgba(236, 48, 19, 1);
+    }
+    input {
+      border-color: rgba(236, 48, 19, 1);
+    }
+    .icon-error {
+      display: block;
+    }
+  }
+  .field.valid .icon-ok {
+    display: block;
+  }
+  .input-wrap {
+    position: relative;
+
+    .icon {
+      display: none;
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .icon-error {
+      color: rgba(236, 48, 19, 1);
+    }
+    .icon-ok {
+      color: rgba(74, 222, 128, 1);
+    }
+  }
   input {
     box-sizing: border-box;
     width: 100%;
     height: 40px;
     padding: 0 16px;
-    border: none;
+    border: 1px solid transparent;
     border-radius: 12px;
     outline: none;
     background-color: rgba(30, 32, 49, 1);
@@ -40,6 +71,11 @@
     border: none;
     cursor: pointer;
   }
+  .error {
+    color: rgba(236, 48, 19, 1);
+    font-size: 12px;
+  }
+
 
   .form {
     display: flex;
@@ -55,6 +91,10 @@
     font-weight: 800;
     cursor: pointer;
   }
+  .submit-btn:disabled {
+    background-color: rgba(86, 88, 105, 1);
+    cursor: not-allowed;
+  } 
 
   .switch {
     display: flex;
