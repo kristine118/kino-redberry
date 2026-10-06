@@ -1,0 +1,49 @@
+.main {
+    background-color: rgba(7, 12, 28, 1);
+    .movie-container{
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 30px 60px;
+        border-bottom: 1px solid rgba(42, 44, 61, 1);
+        .movie-container:not(:last-of-type) {
+            border-bottom: 1px solid rgba(42, 44, 61, 1);
+        }
+        .movie-headers{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h2{
+                // font-family: font/family;
+                // font-weight: 800;
+                // font-style: ExtraBold;
+                font-size: 24px;
+                line-height: 100%;
+                letter-spacing: 0%;
+                color: rgba(255, 255, 255, 1);
+                margin: 0;
+
+            }
+            .see-all{
+                background: none;
+                border: none;
+                color: rgba(236, 48, 19, 1);
+            }
+        }
+        .row{
+            display: flex;
+            gap: 17px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            mask-image: linear-gradient(to right, #000 90%, transparent);
+
+        }
+        .row::-webkit-scrollbar{
+            display: none;
+        }
+        app-movie-card,app-coming-soon-card {
+            flex-shrink: 0;
+        }
+
+    }
+}

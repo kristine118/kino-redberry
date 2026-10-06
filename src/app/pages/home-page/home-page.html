@@ -1,0 +1,39 @@
+
+<main class="main">
+   
+
+    <div class="movie-container">
+        <div class="movie-headers">
+            <h2>NOW PLAYING</h2>
+
+            <button type="button" class="see-all">See All</button>
+        </div>
+        <div class="row">
+            @for (movie of nowPlaying(); track movie.id) {
+                <app-movie-card [movie]="movie" />
+            }
+        </div>
+    </div>
+
+    <div class="movie-container">
+        <div class="movie-headers">
+            <h2>COMING SOON</h2>
+
+            <button type="button" class="see-all">See All</button>
+        </div>
+
+        <div class="row">
+            @for(movie of comingSoon(); track movie.id){
+                <app-coming-soon-card [movie]="movie" />
+            }
+        </div>
+
+    </div>
+    
+
+        
+
+   
+</main>
+
+

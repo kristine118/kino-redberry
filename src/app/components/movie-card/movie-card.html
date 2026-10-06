@@ -1,0 +1,18 @@
+<div class="movie-cards">
+    <img [src]="movie().posterUrl" [alt]="movie().title">
+
+    <div class="card-info">
+        <h2>{{movie().title}}</h2>
+        <span>{{movie().genres[0]?.name}} · {{movie().runtimeMinutes}} min</span>
+
+        <span class="card-age">{{movie().ageRating.code}}</span>
+
+        <div class="pr-tk">
+            <span>From ₾ {{movie().fromPrice}}</span>
+
+            <button type="button" class="buyticket">Buy Ticket</button>
+        </div>
+
+
+    </div>
+</div>

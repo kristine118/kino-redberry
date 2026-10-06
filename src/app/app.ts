@@ -7,6 +7,7 @@ import { RegisterForm } from './components/register-form/register-form';
 import { Modal } from './core/services/modal';
 import { LoginForm } from './components/login-form/login-form';
 
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, Header, ModalWindow, RegisterForm,LoginForm],
