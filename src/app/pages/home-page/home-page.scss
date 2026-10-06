@@ -5,8 +5,7 @@
         flex-direction: column;
         gap: 24px;
         padding: 30px 60px;
-        border-bottom: 1px solid rgba(42, 44, 61, 1);
-        .movie-container:not(:last-of-type) {
+        &:not(:last-of-type) {
             border-bottom: 1px solid rgba(42, 44, 61, 1);
         }
         .movie-headers{
