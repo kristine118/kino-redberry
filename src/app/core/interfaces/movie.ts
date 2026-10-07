@@ -16,7 +16,7 @@ export interface Movie {
     ageRating: AgeRating;
     genres: Genre[];
     formats: Format[];
-    synopsis: string;
+    synopsis?: string;
 }
 export interface Genre{
     id: number,
