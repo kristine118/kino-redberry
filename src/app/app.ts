@@ -7,6 +7,7 @@ import { RegisterForm } from './components/register-form/register-form';
 import { Modal } from './core/services/modal';
 import { LoginForm } from './components/login-form/login-form';
 import { Footer } from './layout/footer/footer';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -20,11 +21,15 @@ export class App implements OnInit {
   private auth = inject(Auth);
   modal = inject(Modal);
 
-  ngOnInit() {
-    if (this.auth.hasToken()) {
-      this.auth.getCurrentUser().subscribe({
-        error: () => this.auth.clearSession()
-      });
-    }
+ngOnInit() {
+  if (this.auth.hasToken()) {
+    this.auth.getCurrentUser().subscribe({
+      error: (err: HttpErrorResponse) => {
+        if (err.status === 401) {
+          this.auth.clearSession();
+        }
+      }
+    });
   }
+}
 }

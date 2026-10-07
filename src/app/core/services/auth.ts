@@ -22,6 +22,7 @@ export class Auth {
   }
 
   clearSession(){
+    console.trace('clearSession called');
     localStorage.removeItem('token');
     this.user.set(null);
   }
