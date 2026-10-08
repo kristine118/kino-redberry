@@ -1,6 +1,5 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
-import { Inject, inject, Injectable } from "@angular/core";
-import { filter } from "rxjs";
+import {  inject, Injectable } from "@angular/core";
 import { SessionFilters } from "../interfaces/session-filters";
 import { SessionResponse } from "../interfaces/session-response";
 import { environment } from "../../../environments/environment";
@@ -14,17 +13,17 @@ export class SessionService {
     getSession(filters: SessionFilters){
         let params = new HttpParams();
 
-        if(filters.date) params = params.set('date', filters.date);
-        if(filters.sort) params = params.set('sort', filters.sort);
-        if(filters.page) params = params.set('page', String(filters.page));
+        if (filters.date) params = params.set('date', filters.date);
+        if (filters.sort) params = params.set('sort', filters.sort);
+        if (filters.page) params = params.set('page', String(filters.page));
 
         filters.venues?.forEach(v => params = params.append('venues[]', v));
         filters.formats?.forEach(f => params = params.append('formats[]', f));
-        filters.languages?.forEach(l => params = params.append('languages[]',l));
+        filters.languages?.forEach(l => params = params.append('languages[]', l));
         filters.bands?.forEach(b => params = params.append('bands[]', b));
 
 
-        return this.http.get<SessionResponse>(`${environment.apiUrl}/sessions`, {params})
+        return this.http.get<SessionResponse>(`${environment.apiUrl}/sessions`, {params});
     }
 
 
