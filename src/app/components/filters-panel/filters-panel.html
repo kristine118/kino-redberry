@@ -1,0 +1,90 @@
+<div class="filter-box">
+  <h2>Filters</h2>
+  <div class="filter-group">
+    <h3>VENUE</h3>
+    @for (venue of options()?.venues; track venue.id) {
+      <label class="check">
+        <input
+          type="checkbox"
+          [checked]="isSelected('venues', venue.slug)"
+          (change)="toggle('venues', venue.slug)"
+        />
+        <span class="box"></span>
+        <span class="name"
+          >{{ venue.name }} <small> · {{ venue.city }}</small></span
+        >
+      </label>
+    }
+  </div>
+
+  <div class="filter-group">
+    <h3>DATE</h3>
+    <div class="date-strip days" (wheel)="onWheel($event)">
+      @for (day of days; track day.value) {
+        <button
+          type="button"
+          class="day"
+          [class.active]="day.value === selectedDate()"
+          (click)="selectDate(day.value)"
+        >
+          <span class="dow">{{ day.dow }}</span>
+          <span class="num">{{ day.num }}</span>
+        </button>
+      }
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <h3>FORMAT</h3>
+    @for (format of availableFormats(); track format.id) {
+      <label class="check">
+        <input
+          type="checkbox"
+          [checked]="isSelected('formats', format.slug)"
+          (change)="toggle('formats', format.slug)"
+        />
+        <span class="box"></span>
+        <span class="name">{{ format.name }}<small></small></span>
+      </label>
+    }
+  </div>
+
+  <div class="filter-group">
+    <h3>LANGUAGE</h3>
+    @for (lang of options()?.languages; track lang.id) {
+      <label class="check">
+        <input
+          type="checkbox"
+          [checked]="isSelected('languages', lang.slug)"
+          (change)="toggle('languages', lang.slug)"
+        />
+        <span class="box"></span>
+        <span class="name">{{ lang.name }}<small></small></span>
+      </label>
+    }
+  </div>
+
+  <div class="filter-group">
+    <h3>TIME OF DAY</h3>
+    @for (time of options()?.timeBands; track time.id) {
+      <label class="check">
+        <input
+          type="checkbox"
+          [checked]="isSelected('bands', time.id)"
+          (change)="toggle('bands', time.id)"
+        />
+        <span class="box"></span>
+        <span class="name">{{ time.label }}</span>
+      </label>
+    }
+  </div>
+
+  <div class="filters-footer">
+    @if (activeCount() > 0) {
+      <button type="button" class="clear-btn" (click)="clearAll()">Clear filters</button>
+    }
+    <span class="active-count">
+      {{ activeCount() }} {{ activeCount() === 1 ? 'filter' : 'filters' }} active
+    </span>
+  </div>
+</div>

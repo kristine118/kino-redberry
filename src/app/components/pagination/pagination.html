@@ -1,0 +1,26 @@
+@if (meta(); as m) {
+  @if (m.lastPage > 1) {
+    <div class="pagination">
+        <button class="arrows" [disabled]="meta().currentPage === 1"
+            (click)="pageChange.emit(meta().currentPage - 1)">
+            <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.66504 8.66504L0.665039 4.66504L4.66504 0.665039" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round" stroke="#A9A9A9"/>
+            </svg>
+        </button>
+
+        @for (p of pages(); track $index) {
+            @if (p === '...') {
+                <span class="dots">…</span>
+            } @else {
+                <button class="page" [class.active]="p === meta().currentPage" (click)="pageChange.emit(p)">{{p}}</button>
+            }
+        }
+
+        <button class="arrows" [disabled]="meta().currentPage === meta().lastPage" (click)="pageChange.emit(meta().currentPage + 1)">
+            <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.665039 8.66504L4.66504 4.66504L0.665039 0.665039" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round" stroke="#A9A9A9"/>
+            </svg>
+        </button>
+    </div>
+  }
+}
