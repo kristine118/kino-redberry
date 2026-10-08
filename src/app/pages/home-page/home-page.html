@@ -6,7 +6,7 @@
         <div class="movie-headers">
             <h2>NOW PLAYING</h2>
 
-            <button type="button" class="see-all">See All</button>
+            <a routerLink="/sessions" class="see-all">See All</a>
         </div>
         <div class="row">
             @for (movie of nowPlaying(); track movie.id) {
@@ -19,7 +19,7 @@
         <div class="movie-headers">
             <h2>COMING SOON</h2>
 
-            <button type="button" class="see-all">See All</button>
+            <a routerLink="/sessions" class="see-all">See All</a>
         </div>
 
         <div class="row">

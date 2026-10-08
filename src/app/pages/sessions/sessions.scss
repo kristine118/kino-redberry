@@ -4,23 +4,23 @@
   background-color: rgba(7, 12, 28, 1);
   .layout {
     display: grid;
-    grid-template-columns: 240px 1fr;   
+    grid-template-columns: 240px 1fr;
     gap: 32px;
   }
   .filters {
-    position: sticky;                    
+    position: sticky;
     top: 24px;
     align-self: start;
-    gap: 36px;  
+    gap: 36px;
     display: flex;
-    flex-direction: column;    
-    .filter-header{
+    flex-direction: column;
+    .filter-header {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
       gap: 6px;
-      h1{
+      h1 {
         // font-family: font/family;
         // font-weight: 800;
         // font-style: ExtraBold;
@@ -30,7 +30,7 @@
         color: rgba(255, 255, 255, 1);
         margin: 0;
       }
-      span{
+      span {
         // font-family: font/family;
         // font-weight: 400;
         // font-style: Regular;
@@ -38,351 +38,41 @@
         line-height: 130%;
         letter-spacing: 0%;
         color: rgba(169, 169, 169, 1);
-
       }
     }
-    .filter-box{
-      background-color: rgba(30, 32, 49, 1);
-      border-radius: 16px;
-      opacity: 1;
-      padding: 24px;
-      gap: 24px;
-      display: flex;
-      flex-direction: column;
-      h2{
-        // font-family: font/family;
-        // font-weight: 800;
-        // font-style: ExtraBold;
-        font-size: 18px;
-        line-height: 100%;
-        letter-spacing: 0%;
-        margin: 0;
-      }
-      .filter-group{
-        border-bottom: 1px solid rgba(42, 44, 61, 1);
-        gap: 12px;
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 20px;
-        h3{
-          // font-family: font/family;
-          // font-weight: 600;
-          // font-style: SemiBold;
-          font-size: 12px;
-          line-height: 100%;
-          letter-spacing: 6%;
-          text-transform: uppercase;
-          color: rgba(169, 169, 169, 1);
-          margin: 0;
-        }
-        .check{
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          cursor: pointer;
-          position: relative;
-          input{
-            position: absolute;
-            opacity: 0;
-            width: 0;
-            height: 0;
-          }
-          .box{
-            flex-shrink: 0;
-            width: 18px;
-            height: 18px;
-            border: 1px solid rgba(80, 82, 97, 1);
-            border-radius: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-          }
-          input:checked + .box {
-            background: rgba(236, 48, 19, 1);
-            border-color: rgba(236, 48, 19, 1);
-          }
-          input:checked + .box::after {
-            content: '';
-            width: 4px;
-            height: 9px;
-            border: solid #fff;
-            border-width: 0 2px 2px 0;
-            transform: rotate(45deg) translate(-1px, -1px);
-          }
-          .name{
-            // font-family: font/family;
-            // font-weight: 600;
-            // font-style: SemiBold;
-            font-size: 14px;
-            line-height: 100%;
-            letter-spacing: 0%;
-            color: rgba(255, 255, 255, 1);
-            small{
-              // font-family: font/family;
-              // font-weight: 400;
-              // font-style: Regular;
-              font-size: 12px;
-              line-height: 130%;
-              letter-spacing: 0%;
-              color: rgba(169, 169, 169, 1);
-            }
-
-          }
-          
-
-        }
-
-      }
-      .date-strip {
-        display: flex;
-        gap: 6px;
-        .day {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding: 10px 6px;
-          border: none;
-          border-radius: 8px;
-          background: rgba(42, 44, 61, 1);
-          color: rgba(255, 255, 255, 1);
-          font-family: inherit;
-          gap: 6px;
-          cursor: pointer;
-
-          .dow {
-            font-size: 9px;
-            color: rgba(169, 169, 169, 1);
-          }
-          .num {
-            font-size: 12px;
-            font-weight: 800;
-          }
-
-          &.active {
-            background: rgba(236, 48, 19, 1);
-            .dow {
-              color: rgba(255, 255, 255, 1);
-            }
-          }
-        }
-      }
-      .filters-footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        .clear-btn {
-          width: 100%;
-          padding: 9px 12px;
-          border: 1px solid rgba(169, 169, 169, 1);
-          border-radius: 999px;
-          background: none;
-          color: rgba(255, 255, 255, 1);
-          cursor: pointer;
-          // font-family: font/family;
-          // font-weight: 600;
-          // font-style: SemiBold;
-          font-size: 12px;
-          line-height: 100%;
-          letter-spacing: 0%;
-
-        }
-        .active-count {
-          font-size: 11px;
-          color: rgba(169, 169, 169, 1);
-        }
-      }
-    
-    }
-
-
   }
-  .results{
+  .results {
     display: flex;
     flex-direction: column;
     gap: 52px;
-  }
-  .movie-group {
-    display: flex;
-    flex-direction: column;
-    padding: 24px 0;
-    gap: 14px;
-    border-bottom: 1px solid rgba(42, 44, 61, 1);
-
-    .movie-head {
+    .results-head {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 16px;
-      margin-bottom: 16px;
-      .movie-text{
+      .sort {
         display: flex;
-        flex-direction: column;
-        gap: 12px;
-        .movie-title{
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 12px;
-          h2{
-            margin: 0;
-            // font-family: font/family;
-            // font-weight: 800;
-            // font-style: ExtraBold;
-            font-size: 18px;
-            line-height: 100%;
-            letter-spacing: 0%;
-
-          }
-          .age{
-              background-color: rgba(236, 48, 19, 0.1);
-              color: rgba(236, 48, 19, 1);
-              padding: 4px 8px;
-              border-radius: 999px;
-              height: 21px;
-              width: fit-content;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              font-size: 12px;
-              // font-family: font/family;
-              // font-weight: 600;
-              // font-style: SemiBold;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 16px;
+        font-size: 13px;
+        color: rgba(169, 169, 169, 1);
+        select {
+          padding: 8px 12px;
+          background: none;
+          border: none;
+          border-radius: 8px;
+          outline: none;
+          color: rgba(255, 255, 255, 1);
+          font-family: inherit;
+          cursor: pointer;
+          color-scheme: dark;
+          option {
+            background-color: rgba(7, 12, 28, 1);
+            color: rgba(255, 255, 255, 1);
+            border: none;
           }
         }
-        .duration{
-          color: rgba(169, 169, 169, 1);
-          // font-family: font/family;
-          // font-weight: 400;
-          // font-style: Regular;
-          font-size: 14px;
-          line-height: 130%;
-          letter-spacing: 0%;
-        }
-      }
-
-      img {
-        width: 56px;
-        border-radius: 8px;
       }
     }
   }
-  .session-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 252px);
-    gap: 12px;
-      .session {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        padding: 15px;
-        border: none;
-        border-radius: 16px;
-        width: 252px;
-        background: rgba(30, 32, 49, 1);
-        text-align: left;
-        color: rgba(255, 255, 255, 1);
-        cursor: pointer;
-        .session-top{
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          
-          .time{
-            // font-family: font/family;
-            // font-weight: 800;
-            // font-style: ExtraBold;
-            font-size: 18px;
-            line-height: 100%;
-            letter-spacing: 0%;
-
-          }
-          .format{
-            padding: 5px 10px;
-            border-radius: 999px;
-            background-color: rgba(42, 44, 61, 1);
-            // font-family: font/family;
-            // font-weight: 600;
-            // font-style: SemiBold;
-            font-size: 12px;
-            line-height: 100%;
-            letter-spacing: 0%;
-          }
-        }
-        .session-bottom{
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 8px;
-          .subtitle-hall{
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 10px;
-            span{
-              // font-family: font/family;
-              // font-weight: 400;
-              // font-style: Regular;
-              font-size: 12px;
-              line-height: 130%;
-              letter-spacing: 0%;
-              color: rgba(169, 169, 169, 1);
-            }
-            .place{
-              color: rgba(255, 255, 255, 1);
-              // font-family: font/family;
-              // font-weight: 600;
-              // font-style: SemiBold;
-              font-size: 12px;
-              line-height: 100%;
-              letter-spacing: 0%;
-            }
-          }
-          .ticket-price{
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 10px;
-            .ticket{
-              display: flex;
-              align-items: center;
-              gap: 4px;
-              // font-family: font/family;
-              // font-weight: 400;
-              // font-style: Regular;
-              font-size: 12px;
-              line-height: 130%;
-              letter-spacing: 0%;
-              color: rgba(74, 222, 128, 1);
-              svg{
-                fill: currentColor;
-              }
-              &.low{
-                color: rgba(236, 48, 19, 1);
-              }
-              &.sold{
-                color: gray;
-              }
-            }
-            .price{
-              // font-family: font/family;
-              // font-weight: 800;
-              // font-style: ExtraBold;
-              font-size: 14px;
-              line-height: 100%;
-              letter-spacing: 0%;
-            }
-
-          }
-        }
-      }
-      .session:disabled { 
-        opacity: 0.4;
-        cursor: not-allowed;
-      }
-
-  }
-
 }
-

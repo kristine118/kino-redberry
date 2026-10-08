@@ -3,11 +3,12 @@ import { MovieCard } from '../../components/movie-card/movie-card';
 import { MovieService } from '../../core/services/movie-service';
 import { Movie } from '../../core/interfaces/movie';
 import { ComingSoonCard } from '../../components/coming-soon-card/coming-soon-card';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-home-page',
-  imports: [MovieCard, ComingSoonCard,],
+  imports: [MovieCard, ComingSoonCard,RouterLink],
   templateUrl: './home-page.html',
   styleUrl: './home-page.scss',
 })

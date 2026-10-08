@@ -8,28 +8,30 @@ import { Modal } from './core/services/modal';
 import { LoginForm } from './components/login-form/login-form';
 import { Footer } from './layout/footer/footer';
 import { HttpErrorResponse } from '@angular/common/http';
-
+import { FilterService } from './core/services/filter-service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, ModalWindow, RegisterForm,LoginForm,Footer],
+  imports: [RouterOutlet, Header, ModalWindow, RegisterForm, LoginForm, Footer],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
 export class App implements OnInit {
   protected readonly title = signal('kino');
   private auth = inject(Auth);
   modal = inject(Modal);
+  private filterService = inject(FilterService);
 
-ngOnInit() {
-  if (this.auth.hasToken()) {
-    this.auth.getCurrentUser().subscribe({
-      error: (err: HttpErrorResponse) => {
-        if (err.status === 401) {
-          this.auth.clearSession();
-        }
-      }
-    });
+  ngOnInit() {
+    this.filterService.load();
+    if (this.auth.hasToken()) {
+      this.auth.getCurrentUser().subscribe({
+        error: (err: HttpErrorResponse) => {
+          if (err.status === 401) {
+            this.auth.clearSession();
+          }
+        },
+      });
+    }
   }
-}
 }
