@@ -23,7 +23,7 @@
         h2 {
           margin: 0;
           // font-family: font/family;
-          // font-weight: 800;
+          font-weight: 800;
           // font-style: ExtraBold;
           font-size: 18px;
           line-height: 100%;
@@ -41,14 +41,14 @@
           align-items: center;
           font-size: 12px;
           // font-family: font/family;
-          // font-weight: 600;
+          font-weight: 600;
           // font-style: SemiBold;
         }
       }
       .duration {
         color: rgba(169, 169, 169, 1);
         // font-family: font/family;
-        // font-weight: 400;
+        font-weight: 400;
         // font-style: Regular;
         font-size: 14px;
         line-height: 130%;
@@ -86,7 +86,7 @@
 
       .time {
         // font-family: font/family;
-        // font-weight: 800;
+        font-weight: 800;
         // font-style: ExtraBold;
         font-size: 18px;
         line-height: 100%;
@@ -97,7 +97,7 @@
         border-radius: 999px;
         background-color: rgba(42, 44, 61, 1);
         // font-family: font/family;
-        // font-weight: 600;
+        font-weight: 600;
         // font-style: SemiBold;
         font-size: 12px;
         line-height: 100%;
@@ -116,7 +116,7 @@
         gap: 10px;
         span {
           // font-family: font/family;
-          // font-weight: 400;
+          font-weight: 400;
           // font-style: Regular;
           font-size: 12px;
           line-height: 130%;
@@ -126,7 +126,7 @@
         .place {
           color: rgba(255, 255, 255, 1);
           // font-family: font/family;
-          // font-weight: 600;
+          font-weight: 600;
           // font-style: SemiBold;
           font-size: 12px;
           line-height: 100%;
@@ -143,7 +143,7 @@
           align-items: center;
           gap: 4px;
           // font-family: font/family;
-          // font-weight: 400;
+          font-weight: 400;
           // font-style: Regular;
           font-size: 12px;
           line-height: 130%;
@@ -161,7 +161,7 @@
         }
         .price {
           // font-family: font/family;
-          // font-weight: 800;
+          font-weight: 800;
           // font-style: ExtraBold;
           font-size: 14px;
           line-height: 100%;

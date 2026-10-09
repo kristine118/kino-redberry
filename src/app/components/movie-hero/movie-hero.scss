@@ -41,7 +41,7 @@
       .status {
         gap: 10px;
         // font-family: font/family;
-        // font-weight: 600;
+        font-weight: 600;
         // font-style: SemiBold;
         color: rgba(236, 48, 19, 1);
         background-color: rgba(236, 48, 19, 0.1);
@@ -64,7 +64,7 @@
         align-items: center;
         font-size: 12px;
         // font-family: font/family;
-        // font-weight: 600;
+        font-weight: 600;
         // font-style: SemiBold;
         cursor: help;
       }
@@ -73,7 +73,7 @@
         margin: 0;
         text-transform: uppercase;
         // font-family: font/family;
-        // font-weight: 800;
+        font-weight: 800;
         // font-style: ExtraBold;
         font-size: 40px;
         letter-spacing: 0%;
@@ -83,7 +83,7 @@
       .synopsis {
         margin: 0;
         // font-family: font/family;
-        // font-weight: 400;
+        font-weight: 400;
         // font-style: Regular;
         font-size: 14px;
         line-height: 130%;
@@ -105,7 +105,7 @@
         border-radius: 999px;
         background: rgba(255, 255, 255, 0.1);
         // font-family: font/family;
-        // font-weight: 600;
+        font-weight: 600;
         // font-style: SemiBold;
         font-size: 12px;
         line-height: 100%;
