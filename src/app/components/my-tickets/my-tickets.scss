@@ -1,0 +1,180 @@
+.profile-tickets {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  .container-tickets {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: rgba(30, 32, 49, 1);
+    border-radius: 26px;
+    padding: 30px;
+    .row-tickets {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      border-radius: 26px;
+      .ticket-left {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        img {
+          width: 100px;
+          border-radius: 10px;
+        }
+        .ticket-info {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+          .fields {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            .title {
+              // font-family: font/family;
+              // font-weight: 800;
+              // font-style: ExtraBold;
+              font-size: 20px;
+              line-height: 100%;
+              letter-spacing: 0%;
+            }
+            .age {
+              background-color: rgba(236, 48, 19, 0.1);
+              color: rgba(236, 48, 19, 1);
+              padding: 4px 8px;
+              border-radius: 999px;
+              height: 21px;
+              width: 38px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 12px;
+              // font-family: font/family;
+              // font-weight: 600;
+              // font-style: SemiBold;
+            }
+            .seat {
+              // font-family: font/family;
+              // font-weight: 600;
+              // font-style: SemiBold;
+              font-size: 12px;
+              line-height: 100%;
+              letter-spacing: 6%;
+              text-transform: uppercase;
+            }
+            .tickets {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              width: 74;
+              height: 21;
+              padding: 4px 10px;
+              opacity: 1;
+              border-radius: 6px;
+              background-color: rgba(255, 255, 255, 0.1);
+            }
+            .time {
+              // font-family: font/family;
+              // font-weight: 400;
+              // font-style: Regular;
+              font-size: 14px;
+              line-height: 130%;
+              letter-spacing: 0%;
+              color: rgba(169, 169, 169, 1);
+            }
+            .fields-part {
+              display: flex;
+              flex-direction: column;
+              gap: 4px;
+              .formats {
+                // font-family: font/family;
+                // font-weight: 600;
+                // font-style: SemiBold;
+                font-size: 12px;
+                line-height: 100%;
+                letter-spacing: 6%;
+                text-transform: uppercase;
+                color: rgba(169, 169, 169, 1);
+              }
+              span {
+                // font-family: font/family;
+                // font-weight: 600;
+                // font-style: SemiBold;
+                font-size: 14px;
+                line-height: 100%;
+                letter-spacing: 0%;
+                color: rgba(255, 255, 255, 1);
+              }
+            }
+          }
+        }
+      }
+      .ticket-right {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px 24px;
+        gap: 16px;
+        opacity: 1;
+        border-left: 2px dashed rgba(42, 44, 61, 1);
+        .refun-txt {
+          // font-family: font/family;
+          // font-weight: 400;
+          // font-style: Regular;
+          font-size: 12px;
+          line-height: 130%;
+          letter-spacing: 0%;
+          text-align: center;
+          color: rgba(169, 169, 169, 1);
+        }
+        .refund {
+          width: 251;
+          height: 35;
+          padding: 10px 20px;
+          gap: 4px;
+          opacity: 1;
+          border-radius: 999px;
+          background-color: rgba(255, 255, 255, 0.1);
+          // font-family: font/family;
+          // font-weight: 800;
+          // font-style: ExtraBold;
+          font-size: 14px;
+          line-height: 100%;
+          letter-spacing: 0%;
+          color: rgba(255, 255, 255, 1);
+          border: none;
+        }
+        .orders {
+          display: flex;
+          flex-direction: column;
+        }
+        .total-payment {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          span {
+            // font-family: font/family;
+            // font-weight: 600;
+            // font-style: SemiBold;
+            font-size: 14px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: rgba(169, 169, 169, 1);
+          }
+          .price {
+            // font-family: font/family;
+            // font-weight: 800;
+            // font-style: ExtraBold;
+            font-size: 24px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: rgba(255, 255, 255, 1);
+          }
+        }
+      }
+    }
+  }
+}

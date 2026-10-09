@@ -1,0 +1,47 @@
+.profile {
+  background: rgba(7, 12, 28, 1);
+  color: rgba(255, 255, 255, 1);
+  padding: 30px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+
+  .profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    border-bottom: 1px solid rgba(30, 32, 49, 1);
+    .tabs {
+      display: flex;
+      gap: 32px;
+      .tab {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding-bottom: 14px;
+        margin-bottom: -1px;
+        border-bottom: 2px solid transparent;
+        text-decoration: none;
+        font-size: 14px;
+        color: rgba(169, 169, 169, 1);
+
+        &.active {
+          color: rgba(255, 255, 255, 1);
+          border-bottom-color: rgba(236, 48, 19, 1);
+        }
+      }
+
+      .badge {
+        min-width: 18px;
+        padding: 2px 6px;
+        border-radius: 999px;
+        background: rgba(236, 48, 19, 1);
+        color: #fff;
+        font-size: 11px;
+        text-align: center;
+      }
+    }
+  }
+
+}

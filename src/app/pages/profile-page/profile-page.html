@@ -1,0 +1,15 @@
+<div class="profile">
+  <div class="profile-header">
+    <h1>My Profile</h1>
+    <nav class="tabs">
+      <a routerLink="/profile" routerLink="/profile" class="tab" [class.active]="tab() === 'info'">Personal Information</a>
+      <a routerLink="/profile"  [queryParams]="{tab:'tickets'}"   [class.active]="tab() === 'tickets'" class="tab">My Tickets<span class="badge">2</span></a>
+    </nav>
+  </div>
+
+  @if (tab() === 'tickets') {
+    <app-my-tickets />
+  } @else {
+    <app-profile-info />
+  }
+</div>

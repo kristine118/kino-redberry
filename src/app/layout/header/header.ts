@@ -46,8 +46,8 @@ export class Header {
     { initialValue: this.router.url },
   );
 
-  overlay = computed(() => {
-    const u = this.url();
-    return u === '/' || u.startsWith('/movies/');
-  });
+overlay = computed(() => {
+  const u = this.url();
+  return u === '/' || u.startsWith('/movies/'); 
+});
 }
