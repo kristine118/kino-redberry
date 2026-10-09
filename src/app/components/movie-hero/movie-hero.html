@@ -1,0 +1,46 @@
+<section class="hero" [style.background-image]="'url(' + movie().backdropUrl + ')'">
+  <div class="overlay"></div>
+
+  <div class="content">
+    <img class="poster" [src]="movie().posterUrl" [alt]="movie().title" />
+
+    <div class="info">
+      <span class="status">
+        @if (movie().isComingSoon) {
+          Coming Soon
+        } @else {
+          Now Playing
+        }
+      </span>
+      <h1>{{ movie().title }}</h1>
+      <p class="synopsis">{{ movie().synopsis }}</p>
+
+      <div class="tags">
+        <span class="age" [title]="movie().ageRating.description">
+          {{ movie().ageRating.code }}
+        </span>
+        <span class="tag">
+          <svg
+            width="11"
+            height="13"
+            viewBox="0 0 11 13"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5.3125 7.0625L7.5 4.875M4 0.5H6.625M10.125 7.0625C10.125 9.72037 7.97037 11.875 5.3125 11.875C2.65463 11.875 0.5 9.72037 0.5 7.0625C0.5 4.40463 2.65463 2.25 5.3125 2.25C7.97037 2.25 10.125 4.40463 10.125 7.0625Z"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke="white"
+            />
+          </svg>
+
+          {{ movie().runtimeMinutes }} Min</span
+        >
+        @for (f of movie().formats; track f.id) {
+          <span class="tag">{{ f.name }}</span>
+        }
+      </div>
+    </div>
+  </div>
+</section>

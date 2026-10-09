@@ -1,4 +1,4 @@
-<div class="movie-group">
+<div class="movie-group" >
   <div class="movie-head">
     <img [src]="group().movie.posterUrl" [alt]="group().movie.title" />
     <div class="movie-text">
@@ -12,7 +12,13 @@
 
   <div class="session-grid">
     @for (session of group().sessions; track session.id) {
-      <button type="button" class="session" [disabled]="session.isSoldOut">
+      
+      <button
+        type="button"
+        class="session"
+        [class.disabled]="session.isSoldOut"
+        (click)="openMovie()"
+      >
         <div class="session-top">
           <span class="time">{{ session.time }}</span>
           <span class="format">{{ session.format.name }}</span>

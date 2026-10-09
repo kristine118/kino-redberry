@@ -1,0 +1,30 @@
+<div class="details">
+  <h2>Details</h2>
+  <div class="details-field">
+    <span class="titles">DIRECTOR</span>
+    <span class="descr">{{movie().director}}</span>
+  </div>
+  <div class="details-field">
+    <span class="titles">MAIN CAST</span>
+    <span class="descr">{{movie().cast}}</span>
+  </div>
+  <div class="details-field">
+    <span class="titles">DURATION</span>
+    <span class="descr">{{movie().runtimeMinutes}} minutes</span>
+  </div>
+  <div class="details-field">
+    <span class="titles">RELEASE DATE</span>
+    <span class="descr">{{movie().releaseDate | date: 'd MMMM y'}}</span>
+  </div>
+  <div class="details-field">
+    <span class="titles">FORMATS</span>
+    <span class="descr">{{formats()}}</span>
+  </div>
+  <div class="rating-note">
+    <span class="titles">RATING NOTE </span>
+    <section>
+      <span>{{movie().ageRating.code}}</span>
+      <span>{{movie().ageRating.description}}</span>
+    </section>
+  </div>
+</div>

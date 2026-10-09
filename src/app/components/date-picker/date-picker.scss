@@ -1,0 +1,28 @@
+.date-group {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  color: rgba(255, 255, 255, 1);
+
+  .date-strip {
+    display: flex;
+    gap: 7px;
+    .day {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 80px;
+      height: 80px;
+      border: none;
+      gap: 6px;
+      opacity: 1;
+      padding: 9px 10px;
+      border-radius: 16px;
+      background: rgba(30, 32, 49, 1);
+      color: rgba(255, 255, 255, 1);
+      //   font-family: inherit;
+      cursor: pointer;
+    }
+  }
+}

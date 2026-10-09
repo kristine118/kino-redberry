@@ -1,0 +1,17 @@
+<div class="date-group">
+  <h2>Sessions</h2>
+  <div class="date-strip">
+    @for (day of days; track day.value) {
+      <button
+        type="button"
+        class="day"
+        [class.active]="day.value === selected()"
+        [disabled]="available() !== null && !available()!.includes(day.value)"
+        (click)="dateChange.emit(day.value)"
+      >
+        <span class="dow">{{ day.dow }}</span>
+        <span class="num">{{ day.num }}</span>
+      </button>
+    }
+  </div>
+</div>

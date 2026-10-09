@@ -1,19 +1,24 @@
 .header {
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  background: linear-gradient(
-    180deg,
-    #000000 -212.35%,
-    rgba(0, 0, 0, 0.51) 32.09%,
-    rgba(0, 0, 0, 0) 93.93%
-  );
-  padding: 30px 60px;
   position: relative;
-  background-color: rgba(7, 12, 28, 1);
   top: 0;
   left: 0;
   z-index: 100;
+  width: 100%;
+  padding: 30px 60px;
+  background: rgba(7, 12, 28, 1); 
+  &.overlay {
+    position: absolute;
+    right: 0;
+    width: auto;                          
+    background: linear-gradient(          
+      180deg,
+      #000000 -212.35%,
+      rgba(0, 0, 0, 0.51) 32.09%,
+      rgba(0, 0, 0, 0) 93.93%
+    );
+  }
   nav {
     display: flex;
     justify-content: center;

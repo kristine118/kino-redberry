@@ -1,0 +1,18 @@
+@if (movie(); as m) {
+  <app-movie-hero [movie]="m" />
+
+  <div class="row">
+    <div class="sessions">
+      <app-date-picker
+        [selected]="selectedDate()"
+        [available]="m.availableDates"
+        (dateChange)="selectedDate.set($event)"
+      />
+      <app-venue-sessions [venues]="venues()" (selected)="openSeats($event)" />
+    </div>
+
+    <div class="details-info">
+      <app-movie-info [movie]="m" />
+    </div>
+  </div>
+}
