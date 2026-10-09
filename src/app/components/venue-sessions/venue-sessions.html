@@ -1,0 +1,21 @@
+@for (v of venues(); track v.venue.id) {
+  <section class="venue">
+    <span class="venue-name">{{ v.venue.name }}</span>
+    <div class="halls">
+      @for (h of v.halls; track h.name) {
+        <div class="hall">
+          <span class="hall-name">Hall {{ h.name }}</span>
+          <div class="tickets">
+            @for (s of h.sessions; track s.id) {
+              <app-session-ticket
+                [session]="s"
+                [disabled]="disabled()"
+                (click)="selected.emit(s)"
+              />
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+}

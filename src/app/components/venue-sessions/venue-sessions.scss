@@ -1,0 +1,37 @@
+.venue {
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: rgba(255, 255, 255, 1);
+  padding-bottom: 26px;
+
+  .venue-name {
+    margin-bottom: 12px;
+    // font-family: font/family;
+    // font-weight: 800;
+    // font-style: ExtraBold;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+}
+.halls {
+  display: flex;
+  gap: 10px;
+}
+.hall {
+  background: rgba(30, 32, 49, 1);
+  border-radius: 18px;
+  padding: 15px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tickets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}

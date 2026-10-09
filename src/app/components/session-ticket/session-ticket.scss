@@ -1,0 +1,115 @@
+.ticket {
+  display: flex;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  color: rgba(255, 255, 255, 1);
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  .main {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 15px;
+    background: rgba(7, 12, 28, 1);
+    border-radius: 8px 0 0 8px;
+    .time {
+      // font-family: font/family;
+      // font-weight: 800;
+      // font-style: ExtraBold;
+      font-size: 20px;
+      line-height: 100%;
+      letter-spacing: 0%;
+    }
+    .meta {
+      font-size: 12px;
+      opacity: 0.7;
+      gap: 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .format {
+        gap: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 4px 12px;
+        border-radius: 999px;
+        background-color: rgba(30, 32, 49, 1);
+        // font-family: font/family;
+        // font-weight: 600;
+        // font-style: SemiBold;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: rgba(169, 169, 169, 1);
+      }
+      .lang {
+        // font-family: font/family;
+        // font-weight: 400;
+        // font-style: Regular;
+        font-size: 12px;
+        line-height: 130%;
+        letter-spacing: 0%;
+        color: rgba(169, 169, 169, 1);
+      }
+    }
+  }
+  .side {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background: rgba(7, 12, 28, 1);
+    border-left: 1.5px dashed rgba(255, 255, 255, 1);
+    border-radius: 0 8px 8px 0;
+    .price {
+      // font-family: font/family;
+      // font-weight: 800;
+      // font-style: ExtraBold;
+      font-size: 18px;
+      line-height: 100%;
+      letter-spacing: 0%;
+      color: rgba(236, 48, 19, 1);
+    }
+    .seats {
+      gap: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // font-family: font/family;
+      // font-weight: 400;
+      // font-style: Regular;
+      font-size: 12px;
+      line-height: 130%;
+      letter-spacing: 0%;
+      color: rgba(169, 169, 169, 1);
+      svg {
+        fill: rgba(169, 169, 169, 1);
+      }
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: -8px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: rgba(30, 32, 49, 1);
+    }
+    &::before {
+      top: -8px;
+    }
+    &::after {
+      bottom: -8px;
+    }
+  }
+}
