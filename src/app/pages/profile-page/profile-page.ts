@@ -2,8 +2,8 @@ import { Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { map } from 'rxjs';
-import { ProfileInfo } from '../../components/profile-info/profile-info';
-import { MyTickets } from '../../components/my-tickets/my-tickets';
+import { ProfileInfo } from '../../components/profile-components/profile-info/profile-info';
+import { MyTickets } from '../../components/profile-components/my-tickets/my-tickets';
 
 @Component({
   selector: 'app-profile-page',

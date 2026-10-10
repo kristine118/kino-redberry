@@ -1,0 +1,88 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-sizing: border-box;
+  padding: 32px;
+  border-radius: 28px;
+  color: rgba(255, 255, 255, 1);
+  font-size: 12px;
+  font-weight: 600;
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #fff;
+    -webkit-box-shadow: 0 0 0 1000px rgba(30, 32, 49, 1) inset;
+    caret-color: #fff;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+  input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    padding: 0 44px 0 16px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    outline: none;
+    background-color: rgba(30, 32, 49, 1);
+    color: rgba(255, 255, 255, 1);
+    font-family: inherit;
+  }
+  .email-number {
+    display: flex;
+    gap: 12px;
+    .field {
+      flex: 1;
+      min-width: 0;
+    }
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .expir-cvv {
+    display: flex;
+    gap: 12px;
+    .field {
+      flex: 1;
+      min-width: 0;
+    }
+  }
+  .field.invalid {
+    label {
+      color: rgba(236, 48, 19, 1);
+    }
+    input {
+      border-color: rgba(236, 48, 19, 1);
+    }
+    .icon-error {
+      display: block;
+    }
+  }
+  .field.valid .icon-ok {
+    display: block;
+  }
+  .input-wrap {
+    position: relative;
+
+    .icon {
+      display: none;
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .icon-error {
+      color: rgba(236, 48, 19, 1);
+    }
+    .icon-ok {
+      color: rgba(74, 222, 128, 1);
+    }
+  }
+  .error {
+    color: rgba(236, 48, 19, 1);
+    font-size: 12px;
+  }
+}

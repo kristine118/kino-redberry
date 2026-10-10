@@ -6,9 +6,9 @@ import { SessionService } from '../../core/services/session-service';
 import { FilterService } from '../../core/services/filter-service';
 import { SessionFilters } from '../../core/interfaces/session-filters';
 import { MovieSessions, SessionsMeta } from '../../core/interfaces/session-response';
-import { FiltersPanel } from '../../components/filters-panel/filters-panel';
-import { MovieSessionsList } from '../../components/movie-sessions/movie-sessions';
-import { Pagination } from '../../components/pagination/pagination';
+import { FiltersPanel } from '../../components/sessions-components/filters-panel/filters-panel';
+import { MovieSessionsList } from '../../components/sessions-components/movie-sessions/movie-sessions';
+import { Pagination } from '../../components/sessions-components/pagination/pagination';
 
 @Component({
   selector: 'app-sessions',

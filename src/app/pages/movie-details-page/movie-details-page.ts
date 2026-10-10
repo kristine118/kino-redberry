@@ -4,11 +4,11 @@ import { MovieService } from '../../core/services/movie-service';
 import { MovieDetails } from '../../core/interfaces/movie-details';
 import { catchError, filter, map, of, switchMap } from 'rxjs';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
-import { MovieHero } from '../../components/movie-hero/movie-hero';
-import { DatePicker } from '../../components/date-picker/date-picker';
-import { VenueSessions } from '../../components/venue-sessions/venue-sessions';
+import { MovieHero } from '../../components/details-components/movie-hero/movie-hero';
+import { DatePicker } from '../../components/details-components/date-picker/date-picker';
+import { VenueSessions } from '../../components/details-components/venue-sessions/venue-sessions';
 import { HallGroup, Session, SessionGroup, VenueHalls } from '../../core/interfaces/session';
-import { MovieInfo } from '../../components/movie-info/movie-info';
+import { MovieInfo } from '../../components/details-components/movie-info/movie-info';
 
 function groupByHall(sessions: Session[]): HallGroup[] {
   const map = new Map<number, HallGroup>();

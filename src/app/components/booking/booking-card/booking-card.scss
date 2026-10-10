@@ -1,0 +1,96 @@
+.booking {
+  background-color: rgba(7, 12, 28, 1);
+  opacity: 1;
+  top: 20px;
+  left: 20px;
+  border-radius: 28px;
+  gap: 32px;
+  padding: 32px;
+  color: rgba(255, 255, 255, 1);
+  display: flex;
+  flex-direction: column;
+  .booking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .booking-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      h2 {
+        font-weight: 800;
+        font-size: 20px;
+        line-height: 100%;
+        letter-spacing: 0%;
+      }
+      span {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 130%;
+        letter-spacing: 0%;
+        color: rgba(169, 169, 169, 1);
+      }
+    }
+    .seats-time {
+      background-color: rgba(30, 32, 49, 1);
+      opacity: 1;
+      border-radius: 12px;
+      padding: 8px 10px;
+      padding-left: 14px;
+      gap: 2px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .title {
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: rgba(169, 169, 169, 1);
+      }
+      .time {
+        font-weight: 800;
+        font-size: 14px;
+        line-height: 100%;
+        letter-spacing: 0%;
+      }
+    }
+  }
+  .booking-main {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    .right-side {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: 32px;
+      padding-right: 15px;
+      border-right: 1px solid rgba(30, 32, 49, 1);
+      .tabs-btn {
+        display: flex;
+        background: rgba(42, 44, 61, 1);
+        border-radius: 999px;
+
+        .tab {
+          flex: 1;
+          height: 42px;
+          border: none;
+          border-radius: 999px;
+          background: transparent;
+          color: rgba(255, 255, 255, 1);
+          font-size: 14px;
+          font-weight: 800;
+          padding: 10px 16px;
+          cursor: pointer;
+          &.active {
+            background: rgba(236, 48, 19, 1);
+          }
+        }
+      }
+    
+    }
+
+  }
+}

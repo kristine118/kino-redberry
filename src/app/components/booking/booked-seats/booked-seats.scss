@@ -1,0 +1,79 @@
+.left-side {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  .seat-txt {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    span {
+      font-size: 12px;
+      font-weight: 800;
+      color: rgba(169, 169, 169, 1);
+    }
+  }
+  .booked-seats {
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    padding: 15px;
+    gap: 6px;
+    background-color: rgba(30, 32, 49, 1);
+    color: rgba(255, 255, 255, 1);
+    .seat-descr {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(42, 44, 61, 1);
+      padding-bottom: 8px;
+      .seat {
+        display: flex;
+        justify-content: center;
+        color: rgba(169, 169, 169, 1);
+        gap: 12px;
+        font-size: 12px;
+        font-weight: 400;
+
+        span {
+          color: rgba(255, 255, 255, 1);
+          font-size: 12px;
+          font-weight: 600;
+        }
+      }
+      .seat-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+    }
+    .ageRating {
+      display: flex;
+      flex: 1;
+      gap: 8px;
+      span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 91px;
+        height: 32px;
+        gap: 2px;
+        opacity: 1;
+        background-color: rgba(42, 44, 61, 1);
+        color: rgba(255, 255, 255, 1);
+        font-size: 12px;
+        font-weight: 600;
+        // padding-top: 8px;
+        // padding-bottom: 8px;
+        border-radius: 16px;
+        &.adult {
+          background: rgba(236, 48, 19, 1);
+        }
+      }
+    }
+  }
+
+}
+:host {
+  display: flex;         
+  flex-direction: column;
+}

@@ -1,0 +1,5 @@
+<div class="checkout">
+  <span class="subtotal">SUBTOTAL <span class="price">₾ {{total()}}</span></span>
+
+  <button class="checkout-btn" [disabled]="disabled()" (click)="action.emit()"> {{label()}}</button>
+</div>

@@ -1,0 +1,30 @@
+.checkout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 10px;
+  .subtotal {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 5px;
+    .price {
+      font-size: 24px;
+      font-weight: 800;
+    }
+  }
+  .checkout-btn {
+    padding: 13px 22px;
+    gap: 4px;
+    background: rgba(80, 82, 97, 1);
+    color: rgba(169, 169, 169, 1);
+    border: none;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 800;
+    &.active {
+      background: rgba(236, 48, 19, 1);
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+}
