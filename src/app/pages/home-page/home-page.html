@@ -5,7 +5,6 @@
     @if (recent.items().length) {
       <div class="movie-headers">
         <h2>Recently viewed</h2>
-        <button type="button" class="see-all" (click)="recent.clear()">Clear</button>
       </div>
       <div class="row" (wheel)="onWheel($event)">
         @for (m of recent.items(); track m.id) {

@@ -5,10 +5,10 @@ import { RouterLink } from '@angular/router';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter, map } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
-
+import { Search } from '../../components/home-components/search/search';
 @Component({
   selector: 'app-header',
-  imports: [RouterLink],
+  imports: [RouterLink, Search],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })

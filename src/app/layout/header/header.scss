@@ -44,7 +44,7 @@
           font-weight: 800;
           .logo {
             //    font-family: font/family;
-                font-weight: 800;
+            font-weight: 800;
             //     font-style: ExtraBold;
             font-size: 14px;
             line-height: 100%;
@@ -82,6 +82,7 @@
       height: 41px;
       width: 380px;
       margin: auto;
+      gap: 5px;
       input {
         background: none;
         border: none;
@@ -91,6 +92,7 @@
         width: 100%;
         height: 100%;
         outline: none;
+        color: rgba(255, 255, 255, 1);
         &::placeholder {
           color: rgba(255, 255, 255, 1);
           font-weight: 400;

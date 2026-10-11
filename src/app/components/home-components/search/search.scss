@@ -1,0 +1,137 @@
+:host {
+  display: block;
+}
+
+.search {
+  position: relative;
+  width: 380px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+  height: 41px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: border-color 0.2s;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  &:focus-within {
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  &:focus-within:has(input:placeholder-shown) > svg {
+    display: none;
+  }
+
+  > svg {
+    flex-shrink: 0;
+  }
+
+  input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    color: rgba(255, 255, 255, 1);
+    font-family: inherit;
+    font-size: 14px;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 1);
+      font-weight: 400;
+    }
+    &:focus::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+  }
+
+  .clear {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+  }
+}
+.dropdown {
+  color: rgba(255, 255, 255, 1);
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(7, 12, 28, 1);
+  border: 1px solid rgba(42, 44, 61, 1);
+}
+
+.notice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 16px;
+  text-align: center;
+  a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+  }
+}
+
+.results-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 8px 8px;
+  font-size: 12px;
+  color: rgba(169, 169, 169, 1);
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  img {
+    width: 32px;
+    height: 48px;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+  .result-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .meta {
+    font-size: 12px;
+    color: rgba(169, 169, 169, 1);
+  }
+  .soon {
+    color: rgba(255, 153, 0, 1);
+    font-weight: 400;
+  }
+  .price {
+    font-weight: 800;
+  }
+}

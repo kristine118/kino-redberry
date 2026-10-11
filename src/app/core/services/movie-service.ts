@@ -43,4 +43,9 @@ export class MovieService {
       )
       .pipe(map((r) => r.data));
   }
+  search(q: string) {
+    return this.http
+      .get<{ data: Movie[] }>(`${environment.apiUrl}/search`, {params: {q}})
+      .pipe(map((r) => r.data));
+  }
 }
