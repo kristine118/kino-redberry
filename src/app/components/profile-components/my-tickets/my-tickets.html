@@ -1,98 +1,79 @@
 <div class="profile-tickets">
-  <div class="container-tickets">
-    <div class="row-tickets">
-      <div class="ticket-left">
-        <img src="satesto.jpg" alt="" />
-        <div class="ticket-info">
-          <div class="fields">
-            <h2 class="title">THE ODYSSEY</h2>
-            <span class="age">12+</span>
-            <span class="time">134 min</span>
-          </div>
-          <div class="fields">
-            <div class="fields-part">
-              <span class="formats">DATE</span>
-              <span>Tue 15 Sep · 16:30</span>
+  <div class="tabs">
+    <button type="button" [class.active]="tab() === 'upcoming'" (click)="tab.set('upcoming')">
+      Upcoming <span class="count">{{ upcoming().length }}</span>
+    </button>
+    <button type="button" [class.active]="tab() === 'past'" (click)="tab.set('past')">
+      Past <span class="count">{{ past().length }}</span>
+    </button>
+  </div>
+  @if (message(); as m) {
+    <p class="message">{{ m }}</p>
+  }
+  @for (o of orders(); track o.id) {
+    <div class="container-tickets">
+      @let s = o.session;
+      <div class="row-tickets">
+        <div class="ticket-left">
+          <img [src]="s.movie.posterUrl" [alt]="s.movie.title" />
+          <div class="ticket-info">
+            <div class="fields">
+              <h2 class="title">{{ s.movie.title }}</h2>
+              <span class="age">{{ s.movie.ageRating.minAge }}+</span>
+              <span class="time">{{ s.movie.runtimeMinutes }}min</span>
             </div>
-            <div class="fields-part">
-              <span class="formats">VENUE</span>
-              <span>Tue 15 Sep · 16:30</span>
+            <div class="fields">
+              <div class="fields-part">
+                <span class="formats">DATE</span>
+                <span>{{ s.date | date: 'EEE d MMM' }} · {{ s.time }}</span>
+              </div>
+              <div class="fields-part">
+                <span class="formats">VENUE</span>
+                <span>{{ s.venue.name }} · Hall {{ s.hall.name }}</span>
+              </div>
+              <div class="fields-part">
+                <span class="formats">FORMATS</span>
+                <span>{{ s.format.name }} · {{ s.language.name }}</span>
+              </div>
             </div>
-            <div class="fields-part">
-              <span class="formats">FORMATS</span>
-              <span>Tue 15 Sep · 16:30</span>
+            <div class="fields">
+              <span class="seat">seat</span>
+              @for (t of o.tickets; track t.id) {
+                <span class="tickets">{{ t.seatCode }} · {{ t.ticketType.name }}</span>
+              }
             </div>
-          </div>
-          <div class="fields">
-            <span class="seat">seat</span>
-            <span class="tickets">B4 · Adult</span>
-            <span class="tickets">B4 · Adult</span>
-            <span class="tickets">B4 · Adult</span>
           </div>
         </div>
-      </div>
 
-      <div class="ticket-right">
-        <div class="orders">
-          <span>ORDER</span>
-          <span>#KX-48291</span>
+        <div class="ticket-right">
+          <div class="orders">
+            <span>ORDER</span>
+            <span>#{{ o.reference }}</span>
+          </div>
+          <div class="total-payment">
+            <span>Total paid</span>
+            <span class="price">₾{{ o.totalPrice | number: '1.0-2' }}</span>
+          </div>
+          @if (tab() === 'upcoming') {
+            <span [title]="o.isRefundable ? '' : refundHint(o)">
+              <button
+                class="refund"
+                [disabled]="!o.isRefundable || refundingId() === o.id"
+                (click)="refund(o)"
+              >
+                {{ refundingId() === o.id ? 'Refunding...' : 'Refund' }}
+              </button>
+            </span>
+            @if (o.isRefundable) {
+              <span class="refun-txt"
+                >Refundable until {{ refundUntil(o) | date: 'HH:mm, EEE d MMM' }}</span
+              >
+            }
+          }
         </div>
-        <div class="total-payment">
-          <span>Total paid</span>
-          <span class="price">₾32</span>
-        </div>
-        <button class="refund">Refund</button>
-        <span class="refun-txt">Refundable until 14:30, Tue 15 Sep</span>
       </div>
     </div>
-    
-  </div>
-  <div class="container-tickets">
-    <div class="row-tickets">
-      <div class="ticket-left">
-        <img src="satesto.jpg" alt="" />
-        <div class="ticket-info">
-          <div class="fields">
-            <h2 class="title">THE ODYSSEY</h2>
-            <span class="age">12+</span>
-            <span class="time">134 min</span>
-          </div>
-          <div class="fields">
-            <div class="fields-part">
-              <span class="formats">DATE</span>
-              <span>Tue 15 Sep · 16:30</span>
-            </div>
-            <div class="fields-part">
-              <span class="formats">VENUE</span>
-              <span>Tue 15 Sep · 16:30</span>
-            </div>
-            <div class="fields-part">
-              <span class="formats">FORMATS</span>
-              <span>Tue 15 Sep · 16:30</span>
-            </div>
-          </div>
-          <div class="fields">
-            <span class="seat">seat</span>
-            <span class="tickets">B4 · Adult</span>
-            <span class="tickets">B4 · Adult</span>
-            <span class="tickets">B4 · Adult</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="ticket-right">
-        <div class="orders">
-          <span>ORDER</span>
-          <span>#KX-48291</span>
-        </div>
-        <div class="total-payment">
-          <span>Total paid</span>
-          <span class="price">₾32</span>
-        </div>
-        <button class="refund">Refund</button>
-        <span class="refun-txt">Refundable until 14:30, Tue 15 Sep</span>
-      </div>
-    </div>
-    
-  </div>
+  } @empty {
+    <p class="empty">No tickets here yet.</p>
+  }
 </div>

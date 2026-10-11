@@ -1,31 +1,44 @@
-  <form action="" class="form">
-    <label for="" class="field">
-      <span>Full name</span>
-      <input type="text" />
-    </label>
+<form id="form" class="form" [formGroup]="form" (ngSubmit)="save()">
+  <label class="field">
+    <span>Full name</span>
+    <input id="fullName" name="fullName" type="text" formControlName="fullName" />
+    @if (err('fullName'); as e) {
+      <small class="error">{{e}}</small>
+    }
+  </label>
+  <label class="field">
+    <span>Email</span>
+    <input id="email" name="email" type="email" formControlName="email" />
+    <small>Set at registration and cannot be changed</small>
+  </label>
 
-    <label for="" class="field">
-      <span>Email</span>
-      <input type="email" />
-      <small>Set at registration and cannot be changed</small>
-    </label>
+  <label class="field">
+    <span>Mobile number</span>
+    <input id="mobileNumber" name="mobileNumber" type="tel" formControlName="mobileNumber" />
+    @if (err('mobileNumber'); as e) {
+      <small class="error">{{e}}</small>
+    }
+  </label>
 
-    <label for="" class="field">
-      <span>Mobile number</span>
-      <input type="text" />
-    </label>
+  <label class="field">
+    <span>Date of birth</span>
+    <input id="dateOfBirth" name="dateOfBirth" type="date" formControlName="dateOfBirth"/>
+    @if (err('dateOfBirth'); as e) {
+      <small class="error">{{e}}</small>
+    }
+  </label>
 
-    <label for="" class="field">
-      <span>Date of birth</span>
-      <input type="text" />
-    </label>
+  <label class="field">
+    <span class="label">Preferred Venue (Optional)</span>
+    <select id="preferredVenueId" name="preferredVenueId" formControlName="preferredVenueId">
+      <option [ngValue]="null">None</option>
+      @for (v of venues(); track v.id) {
+        <option [ngValue]="v.id">{{v.name}}</option>
+      }
+    </select>
+  </label>
 
-    <label for="" class="field">
-      <span class="label">Preferred Venue (Optional)</span>
-      <select>
-        <option value="" disabled selected>e.g. Text</option>
-      </select>
-    </label>
-
-    <button type="submit" class="save">Save changes</button>
-  </form>
+ <button type="submit" class="save" [disabled]="form.invalid || form.pristine || saving()">
+  {{ saving() ? 'Saving...' : 'Save changes' }}
+</button>
+</form>

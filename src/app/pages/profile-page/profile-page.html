@@ -3,12 +3,17 @@
     <h1>My Profile</h1>
     <nav class="tabs">
       <a routerLink="/profile" routerLink="/profile" class="tab" [class.active]="tab() === 'info'">Personal Information</a>
-      <a routerLink="/profile"  [queryParams]="{tab:'tickets'}"   [class.active]="tab() === 'tickets'" class="tab">My Tickets<span class="badge">2</span></a>
+      <a routerLink="/profile"  routerLink="/profile" [queryParams]="{ tab: 'tickets' }" class="tab" [class.active]="tab() === 'tickets'">
+        My Tickets
+          @if (upcoming().length) {
+            <span class="badge">{{ upcoming().length }}</span>
+          }
+      </a>
     </nav>
   </div>
 
   @if (tab() === 'tickets') {
-    <app-my-tickets />
+    <app-my-tickets [upcoming]="upcoming()" [past]="past()" (refunded)="reload()"/>
   } @else {
     <app-profile-info />
   }

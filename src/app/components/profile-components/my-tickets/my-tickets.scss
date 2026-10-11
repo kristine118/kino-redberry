@@ -2,6 +2,40 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  .tabs {
+    align-self: flex-start;
+    display: flex;
+    padding: 5px;
+    border-radius: 12px;
+    background: rgba(30, 32, 49, 1);
+
+    button {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border: none;
+      border-radius: 10px;
+      background: transparent;
+      color: rgba(169, 169, 169, 1);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+
+      .count {
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.25);
+      }
+
+      &.active {
+        background: rgba(42, 44, 61, 1);
+        color: #fff;
+        .count {
+          color: #fff;
+        }
+      }
+    }
+  }
   .container-tickets {
     display: flex;
     flex-direction: column;
@@ -21,6 +55,10 @@
         gap: 18px;
         img {
           width: 100px;
+          border-radius: 10px;
+          aspect-ratio: 2 / 3;
+          object-fit: cover;
+          flex-shrink: 0;
           border-radius: 10px;
         }
         .ticket-info {
@@ -113,6 +151,8 @@
       .ticket-right {
         display: flex;
         flex-direction: column;
+        width: 299px;
+        flex-shrink: 0;
         gap: 16px;
         padding: 20px 24px;
         gap: 16px;
@@ -129,21 +169,27 @@
           color: rgba(169, 169, 169, 1);
         }
         .refund {
-          width: 251;
-          height: 35;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 251px;
+          height: 35px;
           padding: 10px 20px;
           gap: 4px;
           opacity: 1;
           border-radius: 999px;
           background-color: rgba(255, 255, 255, 0.1);
-          // font-family: font/family;
           font-weight: 800;
-          // font-style: ExtraBold;
           font-size: 14px;
           line-height: 100%;
           letter-spacing: 0%;
           color: rgba(255, 255, 255, 1);
           border: none;
+          cursor: pointer;
+          &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+          }
         }
         .orders {
           display: flex;
@@ -154,9 +200,7 @@
           justify-content: space-between;
           align-items: center;
           span {
-            // font-family: font/family;
             font-weight: 600;
-            // font-style: SemiBold;
             font-size: 14px;
             line-height: 100%;
             letter-spacing: 0%;
