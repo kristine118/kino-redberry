@@ -1,0 +1,146 @@
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 760px;
+  padding: 0 72px 48px;
+  background-size: cover;
+  background-position: center;
+  color: rgba(255, 255, 255, 1);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(270deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.8) 100%);
+  }
+  > * {
+    position: relative;
+  }
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  max-width: 600px;
+
+  .premiere {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(236, 48, 19, 0.1);
+    color: rgba(236, 48, 19, 1);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+  }
+  h1 {
+    margin: 0;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .chips {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    span {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .age {
+      background: rgba(236, 48, 19, 0.1);
+      color: rgba(236, 48, 19, 1);
+    }
+  }
+  p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.85);
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 800;
+    height: 42px;
+    color: rgba(255, 255, 255, 1);
+
+    text-decoration: none;
+  }
+  .buy {
+    background: rgba(236, 48, 19, 1);
+  }
+  .all {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.hero-bottom {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 48px;
+}
+.bars {
+  flex: 1;
+  display: flex;
+  gap: 4px;
+}
+.bar {
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  height: 3px;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  &.done {
+    background: rgba(236, 48, 19, 1);
+  }
+  .fill {
+    position: absolute;
+    inset: 0;
+    background: rgba(236, 48, 19, 1);
+    transform-origin: left;
+    animation: fill 6s linear forwards;
+  }
+}
+.arrows {
+  display: flex;
+  gap: 12px;
+  button {
+    width: 54px;
+    height: 54px;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(7, 12, 28, 0.2);
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+  }
+}
+@keyframes fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}

@@ -1,18 +1,18 @@
 <div class="movie-cards">
-    <img [src]="movie().posterUrl" [alt]="movie().title">
+  <div class="media"  [routerLink]="['/movies', movie().slug]">
+    <img class="poster" [src]="movie().posterUrl" [alt]="movie().title" />
+    <img class="backdrop" [src]="movie().backdropUrl" alt="" />
+  </div>
 
-    <div class="card-info">
-        <h2>{{movie().title}}</h2>
-        <span>{{movie().genres[0]?.name}} · {{movie().runtimeMinutes}} min</span>
+  <div class="card-info">
+    <h2>{{ movie().title }}</h2>
+    <span>{{ movie().genres[0]?.name }} · {{ movie().runtimeMinutes }} min</span>
+    <span class="card-age">{{ movie().ageRating.code }}</span>
+    <p class="synopsis">{{ movie().synopsis }}</p>
 
-        <span class="card-age">{{movie().ageRating.code}}</span>
-
-        <div class="pr-tk">
-            <span>From ₾ {{movie().fromPrice}}</span>
-
-            <button type="button" class="buyticket">Buy Ticket</button>
-        </div>
-
-
+    <div class="pr-tk">
+      <span>From ₾ {{ movie().fromPrice }}</span>
+      <button type="button" [routerLink]="['/movies', movie().slug]">Buy Ticket</button>
     </div>
+  </div>
 </div>

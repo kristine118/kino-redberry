@@ -1,39 +1,51 @@
-
 <main class="main">
-   
+  <app-hero-section />
 
-    <div class="movie-container">
-        <div class="movie-headers">
-            <h2>NOW PLAYING</h2>
+  <div class="movie-container">
+    @if (recent.items().length) {
+      <div class="movie-headers">
+        <h2>Recently viewed</h2>
+        <button type="button" class="see-all" (click)="recent.clear()">Clear</button>
+      </div>
+      <div class="row" (wheel)="onWheel($event)">
+        @for (m of recent.items(); track m.id) {
+          <a class="recent-card" [routerLink]="['/movies', m.slug]">
+            <img [src]="m.posterUrl" [alt]="m.title" />
+            <div class="card-info">
+              <h3>{{ m.title }}</h3>
+              <span class="genre">{{ m.genre }} · {{ m.runtimeMinutes }} min</span>
+              <span class="age">{{ m.ageCode }}</span>
+            </div>
+          </a>
+        }
+      </div>
+    }
+  </div>
 
-            <a routerLink="/sessions" class="see-all">See All</a>
-        </div>
-        <div class="row">
-            @for (movie of nowPlaying(); track movie.id) {
-                <app-movie-card [movie]="movie" />
-            }
-        </div>
+  <div class="movie-container">
+    <div class="movie-headers">
+      <h2>NOW PLAYING</h2>
+
+      <a routerLink="/sessions" class="see-all">See All</a>
+    </div>
+    <div class="row" (wheel)="onWheel($event)">
+      @for (movie of nowPlaying(); track movie.id) {
+        <app-movie-card [movie]="movie" />
+      }
+    </div>
+  </div>
+
+  <div class="movie-container">
+    <div class="movie-headers">
+      <h2>COMING SOON</h2>
+
+      <a routerLink="/sessions" class="see-all">See All</a>
     </div>
 
-    <div class="movie-container">
-        <div class="movie-headers">
-            <h2>COMING SOON</h2>
-
-            <a routerLink="/sessions" class="see-all">See All</a>
-        </div>
-
-        <div class="row">
-            @for(movie of comingSoon(); track movie.id){
-                <app-coming-soon-card [movie]="movie" />
-            }
-        </div>
-
+    <div class="row" (wheel)="onWheel($event)">
+      @for (movie of comingSoon(); track movie.id) {
+        <app-coming-soon-card [movie]="movie" />
+      }
     </div>
-    
-
-        
-
-   
+  </div>
 </main>
-
-

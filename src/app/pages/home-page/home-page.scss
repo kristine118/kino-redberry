@@ -1,49 +1,96 @@
 .main {
-    background-color: rgba(7, 12, 28, 1);
-    .movie-container{
+  background-color: rgba(7, 12, 28, 1);
+  .movie-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 30px 60px;
+    &:not(:last-of-type) {
+      border-bottom: 1px solid rgba(42, 44, 61, 1);
+    }
+    .movie-headers {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      h2 {
+        // font-family: font/family;
+        font-weight: 800;
+        // font-style: ExtraBold;
+        font-size: 24px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: rgba(255, 255, 255, 1);
+        margin: 0;
+      }
+      .see-all {
+        background: none;
+        border: none;
+        text-decoration: none;
+        color: rgba(236, 48, 19, 1);
+      }
+    }
+    .row {
+      display: flex;
+      gap: 17px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      min-width: 0;
+      -webkit-mask-image: linear-gradient(to right, #000 90%, transparent);
+      mask-image: linear-gradient(to right, #000 90%, transparent);
+    }
+    .row::-webkit-scrollbar {
+      display: none;
+    }
+    app-movie-card,
+    app-coming-soon-card {
+      flex-shrink: 0;
+    }
+    .recent-card {
+      display: flex;
+      flex-shrink: 0;
+      width: 376px;
+      height: 96px;
+      overflow: hidden;
+      border-radius: 16px;
+      background: rgba(30, 32, 49, 1);
+      color: rgba(255, 255, 255, 1);
+      text-decoration: none;
+      padding: 14px;
+
+      img {
+        width: 87px;
+        height: 100%;
+        flex-shrink: 0;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .card-info {
         display: flex;
         flex-direction: column;
-        gap: 24px;
-        padding: 30px 60px;
-        &:not(:last-of-type) {
-            border-bottom: 1px solid rgba(42, 44, 61, 1);
-        }
-        .movie-headers{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            h2{
-                // font-family: font/family;
-                font-weight: 800;
-                // font-style: ExtraBold;
-                font-size: 24px;
-                line-height: 100%;
-                letter-spacing: 0%;
-                color: rgba(255, 255, 255, 1);
-                margin: 0;
-
-            }
-            .see-all{
-                background: none;
-                border: none;
-                text-decoration: none;
-                color: rgba(236, 48, 19, 1);
-            }
-        }
-        .row{
-            display: flex;
-            gap: 17px;
-            overflow-x: auto;
-            scrollbar-width: none;
-            mask-image: linear-gradient(to right, #000 90%, transparent);
-
-        }
-        .row::-webkit-scrollbar{
-            display: none;
-        }
-        app-movie-card,app-coming-soon-card {
-            flex-shrink: 0;
-        }
-
+        align-items: flex-start;
+        justify-content: center;
+        gap: 8px;
+        padding: 0 16px;
+      }
+      h3 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+      .genre {
+        font-size: 12px;
+        color: rgba(169, 169, 169, 1);
+      }
+      .age {
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: rgba(236, 48, 19, 0.1);
+        color: rgba(236, 48, 19, 1);
+        font-size: 12px;
+        font-weight: 600;
+      }
     }
+  }
 }

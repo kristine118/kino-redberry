@@ -19,12 +19,28 @@ export class MovieService {
     return this.http.get<{ data: Movie[] }>(`${environment.apiUrl}/movies/coming-soon`);
   }
   getMovie(slug: string) {
-    return this.http.get<{ data: MovieDetails }>(`${environment.apiUrl}/movies/${slug}`).pipe(map(res => res.data));
+    return this.http
+      .get<{ data: MovieDetails }>(`${environment.apiUrl}/movies/${slug}`)
+      .pipe(map((res) => res.data));
   }
   getSessions(slug: string, date: string) {
-  const params = new HttpParams().set('date', date);
-  return this.http
-    .get<{ data: SessionGroup[] }>(`${environment.apiUrl}/movies/${slug}/sessions`, { params })
-    .pipe(map(res => res.data));
-}
+    const params = new HttpParams().set('date', date);
+    return this.http
+      .get<{ data: SessionGroup[] }>(`${environment.apiUrl}/movies/${slug}/sessions`, { params })
+      .pipe(map((res) => res.data));
+  }
+
+  getFeatured() {
+    return this.http
+      .get<{ data: Movie[] }>(`${environment.apiUrl}/movies/featured`)
+      .pipe(map((r) => r.data));
+  }
+  notify(slug: string) {
+    return this.http
+      .post<{ data: { movieId: number; subscribed: boolean } }>(
+        `${environment.apiUrl}/movies/${slug}/notify`,
+        {},
+      )
+      .pipe(map((r) => r.data));
+  }
 }

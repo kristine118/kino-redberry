@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, effect, inject, signal, untracked } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../../core/services/movie-service';
 import { MovieDetails } from '../../core/interfaces/movie-details';
@@ -12,6 +12,7 @@ import { MovieInfo } from '../../components/details-components/movie-info/movie-
 import { Auth } from '../../core/services/auth';
 import { Modal } from '../../core/services/modal';
 import { BookingCard } from '../../components/booking/booking-card/booking-card';
+import { RecentlyViewedService } from '../../core/services/recently-viewed-service';
 
 function groupByHall(sessions: Session[]): HallGroup[] {
   const map = new Map<number, HallGroup>();
@@ -32,6 +33,8 @@ export class MovieDetailsPage {
   private route = inject(ActivatedRoute);
   private movieService = inject(MovieService);
   selectedDate = signal<string | undefined>(undefined);
+  private recent = inject(RecentlyViewedService);
+
 
   movie = signal<MovieDetails | null>(null);
 
@@ -58,6 +61,11 @@ export class MovieDetailsPage {
         takeUntilDestroyed(),
       )
       .subscribe((g) => this.groups.set(g));
+
+    effect(() => {
+      const m = this.movie();
+      if (m) untracked(() => this.recent.add(m));
+    });
   }
   groups = signal<SessionGroup[]>([]);
 
@@ -81,6 +89,6 @@ export class MovieDetailsPage {
       this.router.navigate(['/profile']);
       return;
     }
-    this.selectedSession.set(session); 
+    this.selectedSession.set(session);
   }
 }
