@@ -2,7 +2,7 @@ import { Format } from './format';
 
 export interface Session {
   id: number;
-  startAt: string;
+  startsAt: string;
   date: string;
   time: string;
   timeBand: string;

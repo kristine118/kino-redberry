@@ -1,62 +1,57 @@
-      <div class="hall-map">
-        <span class="screen">SCREEN</span>
-        <span class="stalls">STALLS · ROWS A-E</span>
+<div class="hall-map">
+  <span class="screen">SCREEN</span>
 
-        <div class="section">
-          <div class="row">
-            <span>A</span>
-            <div class="seats active">
-              <div>1</div>
-            </div>
-            <div class="seats">
-              <div>2</div>
-            </div>
-          </div>
-          <div class="row">
-            <span>A</span>
-            <div class="seats active">
-              <div>1</div>
-            </div>
-            <div class="seats">
-              <div>2</div>
-            </div>
-          </div>
-          <div class="row">
-            <span>A</span>
-            <div class="seats active">
-              <div>1</div>
-            </div>
-            <div class="seats">
-              <div>2</div>
-            </div>
-          </div>
-          <div class="row">
-            <span>A</span>
-            <div class="seats active">
-              <div>1</div>
-            </div>
-            <div class="seats">
-              <div>2</div>
-            </div>
-          </div>
-        </div>
+  @for (section of sections(); track section.name) {
+    <div class="section">
+      @let first = section.rows[0].label;
+      @let last = section.rows[section.rows.length - 1].label;
+      <h3 class="section-name">{{ section.name }} · Rows {{ first }}-{{ last }}</h3>
 
-        <div class="seat-selection">
-          <div class="fields">
-            <span class="color available"></span>
-            <span class="names">Available</span>
-          </div>
-          <div class="fields">
-            <span class="color selected"></span>
-            <span class="names">Selected</span>
-          </div>
-          <div class="fields">
-            <span class="color sold"></span>
-            <span class="names">Sold</span>
-          </div>
-          <div class="fields">
-            <span class="color held"></span>
-            <span class="names">Held by another user</span>
-          </div>
+      @for (row of section.rows; track row.label) {
+        <div class="row">
+          <div class="row-label">{{ row.label }}</div>
+
+          @for (seat of row.seats; track seat.id) {
+            @if (seat.state === 'unavailable') {
+              <span class="gap"></span>
+            } @else {
+              <button
+                type="button"
+                class="seat"
+                [class.selected]="selectedIds().includes(seat.id)"
+                [class.sold]="seat.state === 'sold'"
+                [class.held]="seat.state === 'held'"
+                [disabled]="seat.state === 'sold' || seat.state === 'held'"
+                (click)="seatClick.emit(seat)"
+              >
+                {{ seat.label }}
+              </button>
+            }
+            @if (seat.aisleAfter) {
+              <span class="aisle"></span>
+            }
+          }
         </div>
-      </div>
+      }
+    </div>
+  }
+
+  <div class="seat-selection">
+    <div class="fields">
+      <span class="color available"></span>
+      <span class="names">Available</span>
+    </div>
+    <div class="fields">
+      <span class="color selected"></span>
+      <span class="names">Selected</span>
+    </div>
+    <div class="fields">
+      <span class="color sold"></span>
+      <span class="names">Sold</span>
+    </div>
+    <div class="fields">
+      <span class="color held"></span>
+      <span class="names">Held by another user</span>
+    </div>
+  </div>
+</div>

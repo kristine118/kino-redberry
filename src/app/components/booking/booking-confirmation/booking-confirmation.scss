@@ -1,0 +1,179 @@
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  color: rgba(255, 255, 255, 1);
+  .check {
+    background-color: rgba(74, 222, 128, 1);
+    width: 56px;
+    height: 56px;
+    gap: 10px;
+    opacity: 1;
+    border-radius: 28px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  h2 {
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+  }
+  p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: rgba(169, 169, 169, 1);
+  }
+  .reference {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 190px;
+    height: 26px;
+    gap: 10px;
+    border-radius: 999px;
+    background-color: rgba(42, 44, 61, 1);
+    color: rgba(255, 255, 255, 1);
+  }
+  .ticket-box {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 12px;
+    opacity: 1;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 565px;
+    background-color: rgba(30, 32, 49, 1);
+    .movie {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(42, 44, 61, 1);
+      img {
+        width: 56px;
+        border-radius: 8px;
+      }
+      .venue {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        h3 {
+          font-weight: 800;
+          font-size: 14px;
+          line-height: 100%;
+          letter-spacing: 0%;
+        }
+        span {
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 130%;
+          letter-spacing: 0%;
+          color: rgba(169, 169, 169, 1);
+        }
+      }
+    }
+    .rows {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(42, 44, 61, 1);
+        span {
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 130%;
+          letter-spacing: 0%;
+          color: rgba(169, 169, 169, 1);
+        }
+        b {
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 100%;
+          letter-spacing: 0%;
+          color: rgba(255, 255, 255, 1);
+        }
+      }
+    }
+    .total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 130%;
+        letter-spacing: 0%;
+        color: rgba(169, 169, 169, 1);
+      }
+      b {
+        font-weight: 800;
+        font-size: 18px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: rgba(255, 255, 255, 1);
+      }
+    }
+  }
+  .actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    .ticket {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 154px;
+      height: 41px;
+      gap: 4px;
+      opacity: 1;
+      border-radius: 999px;
+      padding: 13px 22px;
+      background-color: rgba(236, 48, 19, 1);
+      color: rgba(255, 255, 255, 1);
+      border: none;
+      font-weight: 800;
+      font-size: 14px;
+      line-height: 100%;
+      letter-spacing: 0%;
+      cursor: pointer;
+    }
+    .back-home {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 154px;
+      height: 41px;
+      gap: 4px;
+      opacity: 1;
+      border-radius: 999px;
+      padding: 13px 22px;
+      background-color: rgba(30, 32, 49, 1);
+      color: rgba(255, 255, 255, 1);
+      border: none;
+      font-weight: 800;
+      font-size: 14px;
+      line-height: 100%;
+      letter-spacing: 0%;
+      cursor: pointer;
+    }
+  }
+}
+:host {
+  display: block;
+  width: 100%;
+}

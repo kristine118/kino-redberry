@@ -16,15 +16,17 @@
   .checkout-btn {
     padding: 13px 22px;
     gap: 4px;
-    background: rgba(80, 82, 97, 1);
-    color: rgba(169, 169, 169, 1);
+    background: rgba(236, 48, 19, 1);
+    color: rgba(255, 255, 255, 1);
     border: none;
     border-radius: 999px;
     font-size: 14px;
     font-weight: 800;
-    &.active {
-      background: rgba(236, 48, 19, 1);
-      color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+    &:disabled {
+      background: rgba(80, 82, 97, 1);
+      color: rgba(169, 169, 169, 1);
+      cursor: not-allowed;
     }
   }
 }

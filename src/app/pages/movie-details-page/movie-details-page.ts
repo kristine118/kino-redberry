@@ -1,5 +1,5 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../../core/services/movie-service';
 import { MovieDetails } from '../../core/interfaces/movie-details';
 import { catchError, filter, map, of, switchMap } from 'rxjs';
@@ -9,6 +9,9 @@ import { DatePicker } from '../../components/details-components/date-picker/date
 import { VenueSessions } from '../../components/details-components/venue-sessions/venue-sessions';
 import { HallGroup, Session, SessionGroup, VenueHalls } from '../../core/interfaces/session';
 import { MovieInfo } from '../../components/details-components/movie-info/movie-info';
+import { Auth } from '../../core/services/auth';
+import { Modal } from '../../core/services/modal';
+import { BookingCard } from '../../components/booking/booking-card/booking-card';
 
 function groupByHall(sessions: Session[]): HallGroup[] {
   const map = new Map<number, HallGroup>();
@@ -21,7 +24,7 @@ function groupByHall(sessions: Session[]): HallGroup[] {
 }
 @Component({
   selector: 'app-movie-details-page',
-  imports: [MovieHero, DatePicker, VenueSessions, MovieInfo],
+  imports: [MovieHero, DatePicker, VenueSessions, MovieInfo, BookingCard],
   templateUrl: './movie-details-page.html',
   styleUrl: './movie-details-page.scss',
 })
@@ -61,7 +64,23 @@ export class MovieDetailsPage {
   venues = computed<VenueHalls[]>(() =>
     this.groups().map((g) => ({ venue: g.venue, halls: groupByHall(g.sessions) })),
   );
+  private modal = inject(Modal);
+  private auth = inject(Auth);
+  private router = inject(Router);
+
+  selectedSession = signal<Session | null>(null);
+
   openSeats(session: Session) {
-    console.log('open seats', session);
+    const user = this.auth.user();
+
+    if (!user) {
+      this.modal.open('login');
+      return;
+    }
+    if (!user.profileComplete) {
+      this.router.navigate(['/profile']);
+      return;
+    }
+    this.selectedSession.set(session); 
   }
 }

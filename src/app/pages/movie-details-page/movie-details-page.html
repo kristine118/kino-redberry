@@ -16,3 +16,6 @@
     </div>
   </div>
 }
+@if (selectedSession(); as s) {
+  <app-booking-card [sessionId]="s.id" (closed)="selectedSession.set(null)" />
+}

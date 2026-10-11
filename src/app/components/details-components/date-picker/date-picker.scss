@@ -23,6 +23,9 @@
       background: rgba(30, 32, 49, 1);
       color: rgba(255, 255, 255, 1);
       cursor: pointer;
+      &.active {
+        background: rgba(236, 48, 19, 1);
+      }
     }
   }
 }

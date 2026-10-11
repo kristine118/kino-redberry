@@ -3,6 +3,8 @@
   flex: 1;
   flex-direction: column;
   gap: 32px;
+  overflow-y: auto;
+  min-height: 0;
   .screen {
     background-color: rgba(42, 44, 61, 1);
     height: 30px;
@@ -22,13 +24,26 @@
   .section {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 8px;
+    .section-name {
+      margin: 0 0 4px;
+    }
     .row {
       display: flex;
       align-items: center;
       gap: 8px;
-      .seats {
+      .row-label {
+        width: 24px;
+        flex-shrink: 0;
+      }
+      .seat,
+      .gap,
+      .aisle {
+        flex-shrink: 0; 
+      }
+      .seat {
         border: 1px solid rgba(80, 82, 97, 1);
+        color: rgba(255, 255, 255, 1);
         height: 52px;
         width: 52px;
         font-weight: 800;
@@ -37,10 +52,37 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        &.active {
+        cursor: pointer;
+        &.selected {
           background: rgba(236, 48, 19, 1);
+          border-color: transparent;
+        }
+
+        &.sold {
+          background: rgba(30, 32, 49, 1);
+          border-color: transparent;
+          color: rgba(80, 82, 97, 1);
+          cursor: not-allowed;
+        }
+
+        &.held {
+          background: repeating-linear-gradient(
+            135deg,
+            rgba(30, 32, 49, 1) 0 4px,
+            rgba(80, 82, 97, 1) 4px 8px
+          );
+          border-color: transparent;
+          color: rgba(169, 169, 169, 1);
+          cursor: not-allowed;
         }
       }
+    }
+    .gap {
+      width: 40px;
+      height: 40px;
+    }
+    .aisle {
+      width: 24px;
     }
   }
   .seat-selection {
@@ -72,7 +114,11 @@
           background-color: rgba(30, 32, 49, 1);
         }
         &.held {
-          background-color: rgba(30, 32, 49, 1);
+          background: repeating-linear-gradient(
+            135deg,
+            rgba(30, 32, 49, 1) 0 3px,
+            rgba(80, 82, 97, 1) 3px 6px
+          );
         }
       }
     }

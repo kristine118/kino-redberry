@@ -2,20 +2,28 @@
   <span>summary</span>
   <div class="order-box">
     <div class="top-part">
-      <span class="title">THE ODYSSEY</span>
-      <span class="meta">Hall B · Tue 15 Sep · 16:30</span>
+      <span class="title">{{ session().movie.title }}</span>
+      <span class="meta"
+        >Hall {{ session().hall.name }} · {{ session().date | date: 'EEE d MMM' }} ·
+        {{ session().time }}</span
+      >
     </div>
 
     <div class="seats">
       <div class="line">
         <span>Seats</span>
-        <span>B3, B4, B5</span>
+        <span>{{ codes() }}</span>
       </div>
       <div class="line">
         <span>Tickets</span>
-        <span>2 x Adult, 1 x Child</span>
+        <span>{{ tickets() }}</span>
       </div>
     </div>
   </div>
 </div>
-<app-booking-footer label="Pay: Complete order" [total]="32" [disabled]="true" />
+<app-booking-footer
+  [label]="paying() ? 'Processing...' : 'Pay: Complete order'"
+  [total]="hold().subtotal"
+  [disabled]="paying()"
+  (action)="pay.emit()"
+/>
